@@ -1,24 +1,22 @@
 // Patrol settings
-patrol_range = 200;
-detection_range = 100;
-move_speed = 1;
+patrol_range = 200;       // Distance to patrol
+detection_range = 100;    // Player detection distance
+move_speed = 1;           // Normal speed when patrolling
 
 // AI states
 state_patrol = 0;
 state_chase = 1;
 state_return = 2;
+
 current_state = state_patrol;
 
-// Initial position for patrol return
+// Initial position to return after patrol
 home_x = x;
 home_y = y;
+
+// Target variables
 target_x = x;
 target_y = y;
 
-// Tilemap reference
+// Assign the tilemap
 tilemap = layer_tilemap_get_id("wall");
-
-// 🛠️ Declare search variables here to prevent errors
-search_timer = 300;        // How long an enemy searches before giving up
-search_range = 120;        // Initial search radius
-search_expansion_rate = 1.1; // How much search range expands over time

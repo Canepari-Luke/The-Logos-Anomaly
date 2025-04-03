@@ -1,5 +1,7 @@
 switch (current_state) {
+
     case state_patrol:
+        // Patrol behavior
         if (distance_to_point(home_x, home_y) > patrol_range) {
             target_x = home_x;
             target_y = home_y;
@@ -10,48 +12,49 @@ switch (current_state) {
         break;
 
     case state_chase:
+        // Chase the player
         target_x = obj_player.x;
         target_y = obj_player.y;
 
         if (distance_to_object(obj_player) > detection_range * 1.2) {
-            search_timer = 300; // Reset search timer
             current_state = state_return;
         }
         break;
 
     case state_return:
-        search_timer--;
+        // Return to patrol position
+        target_x = home_x;
+        target_y = home_y;
 
-        if (search_timer > 0) {
-            target_x = obj_player.x + irandom_range(-search_range, search_range);
-            target_y = obj_player.y + irandom_range(-search_range, search_range);
-            search_range *= search_expansion_rate;
-        } 
-        else {
-            search_range = 120; // Reset search range
+        if (distance_to_point(home_x, home_y) < 5) {
             current_state = state_patrol;
         }
         break;
 }
 
-// Smart Movement & Avoidance (ONLY CHANGES MOVEMENT, NOT TARGETING)
+// Move toward target
 var _hor = sign(target_x - x);
 var _ver = sign(target_y - y);
 
-var new_x = x + (_hor * move_speed);
-var new_y = y + (_ver * move_speed);
+move_and_collide(_hor * move_speed, _ver * move_speed, tilemap);
 
-// Check for obstacles (walls and other enemies)
-var can_move_x = !tilemap_get_at_pixel(tilemap, new_x, y);
-var can_move_y = !tilemap_get_at_pixel(tilemap, x, new_y);
-var enemy_in_x = instance_place(new_x, y, obj_enemy_parent);
-var enemy_in_y = instance_place(x, new_y, obj_enemy_parent);
+// Check for collisions with other enemies
+if (place_meeting(x, y, obj_enemy_parent)) {
+    var other_enemy = instance_place(x, y, obj_enemy_parent);
+    
+    if (other_enemy) {
+        // Find the direction to move away
+        var push_x = sign(x - other_enemy.x);
+        var push_y = sign(y - other_enemy.y);
 
-// Move in priority order
-if (can_move_x && enemy_in_x == noone) {
-    x = new_x;
+        // Move slightly to avoid overlap
+        x += push_x * 2;
+        y += push_y * 2;
+
+        // Double-check if still overlapping, move again
+        if (place_meeting(x, y, obj_enemy_parent)) {
+            x += push_x * 2;
+            y += push_y * 2;
+        }
+    }
 }
-else if (can_move_y && enemy_in_y == noone) {
-    y = new_y;
-}
-// If both are blocked, stay in place
