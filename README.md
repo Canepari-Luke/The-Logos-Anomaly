@@ -1,2 +1,2 @@
 # The-Logos-Anomaly
- sci-fi indie puzzle horror game
+ sci-fi puzzle horror game
