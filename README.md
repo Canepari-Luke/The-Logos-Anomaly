@@ -37,8 +37,8 @@ This game is being developed in **GameMaker Studio 2/2.3+** using GML (GameMaker
 
  # Future Game Objects
  
-- `obj_atmo_proc`, `obj_pc_conv`, `obj_qec_chip`: Collectible ship components required to complete varius objectives.
-- `obj_door`: An object to trigger room changes in GameMaker and seperate spaces in rooms.
+- `obj_atmo_proc`, `obj_pc_conv`, `obj_qec_chip`: Collectible ship components required to complete various objectives.
+- `obj_door`: An object to trigger room changes in GameMaker and separate spaces in rooms.
 - `obj_computer`: An object used to save progress, store spare inventory items, and potentially more.
 - `obj_inventory_manager`: Object meant to act as player inventory to store other objects.
 
