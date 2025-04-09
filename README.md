@@ -34,7 +34,12 @@ This game is being developed in **GameMaker Studio 2/2.3+** using GML (GameMaker
 - `obj_player`: The main character, equipped with movement, health system, and collision detection.
 - `obj_enemy_parent`: Base object for enemy AI behavior (patrol, chase, return states).
 - `obj_hunter`, `obj_drone`: Subtypes of enemies with unique speeds and damage output.
-- `obj_part1`, `obj_part2`, `obj_part3`: Collectible ship components required to complete the main objective.
+
+ # Future Game Objects
+ 
+- `obj_part1`, `obj_part2`, `obj_part3`: Collectible ship components required to complete varius objectives.
+- `obj_door`: An object to trigger room changes in GameMaker and seperate spaces in rooms.
+- `obj_computer`: An object used to save progress, store spare invantory items, and potentially more.
 
 # Future Work
 
