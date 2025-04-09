@@ -52,7 +52,7 @@ This game is being developed in **GameMaker Studio 2/2.3+** using GML (GameMaker
 - [GameMaker Manual](https://manual.yoyogames.com/)
 - [GML Reference](https://manual.yoyogames.com/#t=GameMaker_Language%2FGML_Reference%2FGML_Reference.htm)
 - [Pixel Art Tutorials (MortMort)](https://www.youtube.com/user/atMNRArt)
-- [GameMaker 15 minute tutorial]([https://www.reddit.com/r/gamedev/](https://www.youtube.com/watch?v=nwlvT-L9vFg))
+- [GameMaker 15 minute tutorial]((https://www.youtube.com/watch?v=nwlvT-L9vFg))
 - [GameMaker RPG tutorial 1](https://www.youtube.com/watch?v=1J5EydrnIPs)
 - [GameMaker RPG tutorial 2](https://www.youtube.com/watch?v=xr0mqIy6DAU)
 
