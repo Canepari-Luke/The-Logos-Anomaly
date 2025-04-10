@@ -25,9 +25,8 @@ This game is being developed in **GameMaker Studio 2/2.3+** using GML (GameMaker
 
 - GameMaker Studio 2 / 2.3+
 - Aseprite (for pixel art sprite creation)
+- Pixilart.com
 - Git for version control
-- Visual Studio Code (for editing external GML scripts when needed)
-- Trello (for tracking tasks and narrative flow)
 
 # Key Game Objects
 
